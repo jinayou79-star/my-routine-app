@@ -509,7 +509,7 @@ function SettingsTab({ routines, setRoutines, todos, setTodos, events, setEvents
   );
 }
 
-// ── 메인 앱 컴포넌트 ───────────────────────────────────────────
+// ── 메인 앱 컴포넌트  ──────────────────────
 export default function App() {
   const [routines, setRoutines] = usePersist("ml3_routines", []);
   const [todos, setTodos] = usePersist("ml3_todos", []);
@@ -536,15 +536,44 @@ export default function App() {
   };
 
   return (
-    <div style={{ background: C.bg, minHeight: "100vh", fontFamily: "sans-serif", color: C.accent, maxWidth: 430, margin: "0 auto", display: "flex", flexDirection: "column" }}>
-      <div style={{ flex: 1, padding: "20px 20px 88px", overflowY: "auto" }}>
+    <div style={{ 
+      background: C.bg, 
+      minHeight: "100vh", 
+      width: "100%",      // 화면 전체 너비 사용
+      maxWidth: 430,     // 모바일 최대폭 제한
+      margin: "0 auto",  // 가로 중앙 정렬
+      display: "flex", 
+      flexDirection: "column",
+      position: "relative",
+      boxSizing: "border-box"
+    }}>
+      {/* 실제 콘텐츠가 보이는 영역 */}
+      <div style={{ 
+        flex: 1, 
+        padding: "20px 20px 88px", 
+        overflowY: "auto",
+        boxSizing: "border-box"
+      }}>
         {renderContent()}
       </div>
 
-      <div style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 430, background: C.surface, borderTop: `1px solid ${C.border}`, zIndex: 100, paddingBottom: "env(safe-area-inset-bottom)" }}>
+      {/* 하단 탭 메뉴 바 */}
+      <div style={{ 
+        position: "fixed", 
+        bottom: 0, 
+        left: "50%", 
+        transform: "translateX(-50%)", 
+        width: "100%", 
+        maxWidth: 430, 
+        background: C.surface, 
+        borderTop: `1px solid ${C.border}`, 
+        zIndex: 100, 
+        paddingBottom: "env(safe-area-inset-bottom)" 
+      }}>
         <div style={{ display: "flex", padding: "8px 10px 12px", justifyContent: "space-around" }}>
           {TABS.map(t => (
-            <button key={t.id} onClick={() => setActiveTab(t.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, background: "transparent", border: "none", cursor: "pointer", opacity: activeTab === t.id ? 1 : 0.4 }}>
+            <button key={t.id} onClick={() => setActiveTab(t.id)} 
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, background: "transparent", border: "none", cursor: "pointer", opacity: activeTab === t.id ? 1 : 0.4 }}>
               <div style={{ fontSize: 20 }}>{t.icon}</div>
               <div style={{ fontSize: 10, fontWeight: 700 }}>{t.label}</div>
             </button>

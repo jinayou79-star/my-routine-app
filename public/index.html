@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <meta name="theme-color" content="#ff6b6b" />
+    
+    <meta name="description" content="나의 스마트한 라이프 루틴 플래너" />
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-<meta name="theme-color" content="#ff6b6b" />
-<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <title>내 루틴 앱</title>
+
+    <style>
+      /* 앱처럼 보이기 위해 드래그나 우클릭을 방지하고 싶다면 추가 (선택사항) */
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: #f8f8f8;
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>이 앱을 실행하려면 자바스크립트 활성화가 필요합니다.</noscript>
+    
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
